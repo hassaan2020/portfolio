@@ -69,6 +69,7 @@ html{
 // }
 
 nav{
+    overflow: hidden;
     grid-area: nav;
     @include colors($secondMainColor, #6d6d6d);
     display: grid;
@@ -90,6 +91,7 @@ nav{
         display: inline-flex;
         align-items: center;
         justify-content: space-around;
+        overflow: hidden;
         a{
             text-decoration: none;
             color: #6d6d6d;

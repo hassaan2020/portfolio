@@ -131,7 +131,7 @@ header{
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 600px;
-    @include paddingM(15px, 5px, 5px, 5px);
+    // @include paddingM(15px, 5px, 5px, 5px);
     display: grid;
     grid-template: {
         columns: repeat(10,1fr);

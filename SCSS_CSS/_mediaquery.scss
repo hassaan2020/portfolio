@@ -33,7 +33,7 @@
     }
     header{
         height: auto;
-        @include paddingM(10px, 10px, 10px, 10px);
+        // @include paddingM(10px, 10px, 10px, 10px);
         gap: 15px;
         grid-template: {
             columns: repeat(10,1fr);
@@ -194,7 +194,7 @@
     header{
         height: auto;
         width: 100%;
-        @include paddingM(10px, 10px, 10px, 10px);
+        // @include paddingM(10px, 10px, 10px, 10px);
         gap: 15px;
         grid-template: {
             columns: repeat(10,1fr);

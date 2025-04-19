@@ -122,6 +122,7 @@ nav{
 
 header{
     grid-area: header;
+    overflow: hidden;
     @include colors( transparent ,$mainColor);
     background-image: url(../images/sss.jpg);
     background-size: cover;

@@ -207,7 +207,7 @@
                 @include fonts("Montserrat", large, auto);
             }
             h1{
-                @include fonts("Montserrat", medium, auto);
+                @include fonts("Montserrat", small, auto);
             }
         }
         .img{

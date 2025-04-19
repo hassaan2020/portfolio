@@ -69,7 +69,6 @@ html{
 // }
 
 nav{
-    overflow: hidden;
     grid-area: nav;
     @include colors($secondMainColor, #6d6d6d);
     display: grid;
@@ -124,7 +123,6 @@ nav{
 
 header{
     grid-area: header;
-    overflow: hidden;
     @include colors( transparent ,$mainColor);
     background-image: url(../images/sss.jpg);
     background-size: cover;

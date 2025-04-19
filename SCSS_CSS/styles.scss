@@ -1,0 +1,641 @@
+$mainColor: #006A71; //180000  454545 00919b
+$secondMainColor: #fff;  //fff
+$otherColors:#48A6A7; //9ACBD0;
+@mixin colors($mCol, $sCol){                   
+    background-color: $mCol;
+    color: $sCol;
+}
+@mixin maginM($top, $right, $bottom, $left){                   
+    margin: $top $right $bottom $left;
+}
+@mixin paddingM($top, $right, $bottom, $left){                   
+    padding: $top $right $bottom $left;
+} 
+@mixin center_Ver_Hor($flx, $contnt, $itms){
+    display: $flx;
+    justify-content: $contnt;
+    align-items: $itms;
+}
+@mixin fonts($family, $size, $weight){
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+}
+@mixin afterUnderline($width, $height, $mTop, $mBottom){
+    &::after{
+        content: "";
+        display: block;
+        width: $width;
+        height: $height;
+        margin-top: $mTop;
+        margin-bottom: $mBottom;
+        background: linear-gradient(to right, $mainColor, $otherColors, transparent);
+    }
+}
+@mixin afterUnderline2($width, $height, $mTop, $mBottom){
+    &::after{
+        content: "";
+        display: block;
+        width: $width;
+        height: $height;
+        margin-top: $mTop;
+        margin-bottom: $mBottom;
+        background: linear-gradient(to right, $secondMainColor, transparent);
+    }
+}
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    box-sizing: border-box;
+    @include maginM(0,0,0,0);
+    @include paddingM(0,0,0,0);
+}
+body{
+    display: grid;
+    grid-template: {
+        columns: repeat(5,1fr);
+        rows: auto auto auto auto auto;
+        areas: "nav nav nav nav nav"
+        "header header header header header"
+        "sec sec sec sec sec"
+        "skills skills skills skills skills "
+        "sect2 sect2 sect2 sect2 sect2 "
+        "prjcts prjcts prjcts prjcts prjcts "
+        "contc contc contc contc contc"
+        "footer footer footer footer footer";
+    };
+}
+
+nav{
+    grid-area: nav;
+    @include colors($secondMainColor, #6d6d6d);
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        rows: repeat(1,1fr);
+        areas: " . logo logo logo . navLinks navLinks navLinks navLinks .";
+    };
+    h2{
+        color: $mainColor;
+        @include paddingM(10px, 10px, 10px, 10px);
+        @include fonts("Orbitron", auto, 500);
+        grid-area: logo;
+    }
+    ul{
+        grid-area: navLinks;
+        list-style: none;
+        @include fonts("Montserrat", 14px, 500);
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-around;
+        a{
+            text-decoration: none;
+            color: #6d6d6d;
+            &:hover li{
+                @include colors(transparent, $otherColors);
+                border-bottom: 2px solid;
+                border-image: linear-gradient(to right, #fff, $otherColors, #fff) 1;
+                cursor: pointer;
+            }
+            li{
+                @include center_Ver_Hor(inline-flex,space-between, center);
+                @include paddingM(5px, 5px, 5px, 5px);
+                border-bottom: 2px solid;
+                border-image: linear-gradient(to right, transparent, transparent) 1;
+                transition: 0.5s;
+                
+            } 
+        }
+        
+    }
+    .minIcon{
+        display: none;
+        grid-area: icon;
+        height: 100%;
+        width: 24px;
+        fill: $mainColor;
+        cursor: pointer;
+    }
+}
+
+header{
+    grid-area: header;
+    @include colors( transparent ,$mainColor);
+    background-image: url(../images/sss.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 600px;
+    @include paddingM(15px, 5px, 5px, 5px);
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        areas: " . about about about about img img img img .";
+    };
+    .aboutMe{
+        grid-area: about;
+        @include paddingM(30px, 10px ,20px ,10px);
+        display: grid;
+        gap: 15px;
+        grid-template: {
+            columns: repeat(1,1fr);
+            rows: 10% auto auto auto auto auto 30% ;
+        }
+        .big{
+            @include fonts("Montserrat", 70px, auto);
+        }
+        h1{
+            @include fonts("Montserrat", 40px, auto);
+        span{
+                color: $otherColors;
+                @include afterUnderline(100px, 4px, auto, auto);
+            }
+        }
+        button{
+            width: 30%;
+            @include colors(transparent, $mainColor);
+            @include paddingM(10px,0 ,10px ,0 );
+            border: 1px solid $mainColor;
+            outline: none;
+            text-transform: uppercase;
+            @include fonts("Montserrat", auto, 600);
+            // @include maginM(5px,5px ,5px ,5px );
+            cursor: pointer;
+            transition: 0.5s;
+            &:hover{
+                @include colors($mainColor, $secondMainColor);
+            }
+        }
+        .social{
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(10,30px);
+            grid-template-rows: repeat(1,30px);
+            a{
+                text-decoration: none;
+                border-radius: 50%;
+                // @include paddingM(5px, 5px, 5px, 5px);
+                @include center_Ver_Hor(flex, center, center);
+                // @include maginM(10px, 10px, 10px, 10px);
+                @include colors($secondMainColor, $mainColor);
+                border: 1px solid $mainColor;
+                transition: 1s;
+                &:hover{
+                    @include colors($mainColor,$secondMainColor);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    .img{
+        grid-area: img;
+        display: grid;
+        grid-template: {
+            columns: repeat(1,100%);
+            rows: repeat(1,90%);
+            
+        }
+        
+        .borderImg{
+            // grid-area: img2;
+            background-image: url(../images/jj.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            animation-name: scaleImg;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+            animation-duration: 2s;
+            transition: 2s;
+        }
+    }
+    
+}
+section{
+    grid-area: sec;
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        areas: 
+        "line line line line line line line line line line"
+        ". photo photo photo photo objct objct objct objct ."
+        
+    };
+    .photo{
+        grid-area: photo;
+        display: grid;
+        grid-template: {
+            columns: 20% 60% 20%;
+            rows: repeat(1,500px);
+            areas: "photo";
+        }
+        width: 90%;
+        // @include colors($secondMainColor, $mainColor);
+        background-image: url(../images/has.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+        @include paddingM(10px,10px,10px,10px);
+    }
+    .objective{
+        grid-area: objct;
+        display: grid;
+        grid-template: {
+            columns: repeat(5,1fr);
+            rows: 25% 10% 10% 30% 25%;
+            areas: 
+            "s s s s s"
+            "h5 h5 h5 h5 h5"
+            "h1 h1 h1 h1 h1"
+            "p p p p p";
+        }
+        // @include center_Ver_Hor(flex,center ,center );
+        @include colors(none, $mainColor);
+        @include paddingM(20px,20px,20px,20px);
+        @include fonts("Montserrat", "auto",400);
+        line-height: 1.5;
+        h3{
+            grid-area: h5;
+            @include fonts("Montserrat", "auto",600);
+            @include afterUnderline(50px, 4px, auto, auto);
+        }
+        h1{
+            grid-area: h1;
+            @include fonts("Orbitron", "auto",700);
+            text-transform: uppercase;
+            color: $otherColors;
+        }
+        p{
+            grid-area: p;
+            text-align: justify;
+            text-justify: inter-word;
+            color: #000000;
+            
+            button{
+                display: block;
+                // width: 30%;
+                @include colors($secondMainColor, $mainColor);
+                @include paddingM(10px,20px ,10px ,20px );
+                @include maginM(15px, 0px ,10px , 0px );
+                border: 1px solid $mainColor;
+                outline: none;
+                text-transform: uppercase;
+                @include fonts("Montserrat", auto, 600);
+                // @include maginM(5px,5px ,5px ,5px );
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover{
+                    background: linear-gradient(to right, $mainColor, $otherColors);
+                    color: $secondMainColor;
+                    border-image: linear-gradient(to right, $mainColor, $otherColors) 1 1 1 1;
+                }
+            }
+        }
+    }
+    &::before{
+        content: "";
+        grid-area: line;
+        display: block;
+        height: 1px;
+        background:linear-gradient(to right, $secondMainColor, $otherColors, $secondMainColor);
+
+    }
+}
+.skills{
+    grid-area: skills;
+    background-image: url(../images/dev2.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    .mySkills{
+        width: 100%;
+        height: 100%;
+        background-color: #ffffffd6;
+        @include paddingM(30px, 10px, 40px, 10px);
+        display: grid;
+        grid-template: {
+            columns: repeat(10,1fr);
+            rows: "auto auto";
+            areas: ". h1S h1S h1S h1S h1S h1S h1S h1S ."
+            ". progressB progressB progressB progressB progressB progressB progressB progressB .";
+        };
+        h1{
+            grid-area: h1S;
+            color: $mainColor;
+            margin-bottom: 10px;
+            @include fonts("Montserrat", auto, auto);
+            @include afterUnderline(60px, 4px, 5px, 20px);
+        }
+        .progressBars{
+            grid-area: progressB;
+            display: grid;
+            gap: 15px 25px;
+            grid-template: {
+                columns: repeat(2,auto);
+                rows: repeat(6,auto);
+            };
+            @for $i from 1 through 12{
+                .prog-#{$i}{
+                    // grid-area: prog;
+                    h4{
+                        color: $mainColor;
+                        padding-bottom: 5px;
+                        @include fonts("Orbitron", auto, auto);
+                    }
+                    .prec-100{
+                        height: 10px;
+                        background-color: $mainColor;
+                        border-radius: 30px;
+                        .rate{
+                            width: 90%;
+                            height: 100%;
+                            border-radius: 30px;
+                            // background-color: $otherColors;
+                            background:linear-gradient(to right, $otherColors, #9ACBD0);
+                        }
+                        .d99{
+                            width: 99% !important;
+                        }
+                        .d90{
+                            width: 90% !important;
+                        }
+                        .d85{
+                            width: 85% !important;
+                        }
+                        .d80{
+                            width: 80% !important;
+                        }
+                        .d70{
+                            width: 70% !important;
+                        }
+                        .d75{
+                            width: 75% !important;
+                        }
+                    }
+                }
+            }
+            
+            
+        }
+    }
+}
+
+.sec2{
+    @include maginM(25px, 0, 25px,0 );
+    grid-area: sect2;
+    grid-template: {
+        columns: repeat(10,1fr);
+        areas: 
+        ". objct objct objct objct photo photo photo photo .";
+        
+    };
+    .photo{
+        background-image: url(../images/ab.png);
+        grid-template: {
+            columns: 5% 90% 5%;
+            areas: "photo";
+        }
+    }
+    .objective{
+        grid-area: objct;
+        display: grid;
+        grid-template: {
+            columns: repeat(5,1fr);
+            rows: 10% 10% 10% 35% 35%;
+            areas: 
+            "s s s s s"
+            "h5 h5 h5 h5 h5"
+            "h1 h1 h1 h1 h1"
+            "p p p p p";
+        }
+    }
+}
+.myProject{
+    @include paddingM(10px,0 ,50px ,0 );
+    @include maginM(20px,0 ,20px ,0 );
+    background-color: #dafdfa;
+    background-image: url("../images/ss.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    grid-area: prjcts;
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        rows: auto auto;
+        areas: 
+        ". h1Mypro h1Mypro h1Mypro h1Mypro h1Mypro h1Mypro h1Mypro h1Mypro ."
+        ". grdVew grdVew grdVew grdVew grdVew grdVew grdVew grdVew .";
+    }
+    justify-content: space-evenly;  
+    h1{
+        grid-area: h1Mypro;
+        @include paddingM(30px, 5px, 30px, 5px);
+        @include fonts("Montserrat", auto, auto);
+        color: $secondMainColor;
+        text-align: center;
+        text-transform: uppercase;
+    }  
+    .gridView{
+        grid-area: grdVew;
+        display: grid;
+        gap: 20px;
+        grid-template: {
+            columns: repeat(4,1fr);
+            // rows: auto auto;
+        }
+        .pro-1{
+            background-color: $secondMainColor;
+            text-align: center;
+            overflow: hidden;
+            padding-bottom: 20px;
+            // filter: drop-shadow(2px 2px 2px $otherColors);
+            img{
+                width: 100%;
+                height: 55%;
+            }
+            h2{
+                @include paddingM(10px, 5px, 5px, 10px);
+                @include fonts("Orbitron", auto, auto);
+                color: $mainColor;
+            }
+            p{
+                @include paddingM(0px, 10px, 5px, 10px);
+                @include fonts("Montserrat", auto, auto);
+                color: #6d6d6d;
+            }
+            button{
+                @include maginM(10px, 5px, 50px, 10px);
+                @include paddingM(8px,20px ,8px ,20px );
+                @include colors($secondMainColor, $mainColor);
+                border: 1px solid $otherColors;
+                outline: none;
+                text-transform: uppercase;
+                @include fonts("Montserrat", auto, auto);
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover{
+                    background: linear-gradient(to right, $mainColor, $otherColors);
+                    color: $secondMainColor;
+                    border-image: linear-gradient(to right, $mainColor, $otherColors) 1 1 1 1;
+                }
+            }
+        }
+    }
+}
+.contact{
+    grid-area: contc;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        areas: ". h1C h1C h1C h1C h1C h1C h1C h1C ."
+         ". . conForm conForm conForm conForm conForm conForm . .";
+        }
+    h1{
+        grid-area: h1C;
+        text-align: center;
+        @include fonts("Montserrat", auto, auto);
+        text-transform: uppercase;
+        color: $mainColor;
+        margin-bottom: 40px;
+        margin-top: 20px;
+    }
+    .form{
+        grid-area: conForm;
+        display: grid;
+        grid-template: {
+            columns: repeat(1,1fr);
+        }
+        .form2{
+            display: grid;
+            gap: 30px 20px;
+            grid-template: {
+            columns: repeat(3,1fr);
+            }
+            .inp{
+            @include fonts("Montserrat", auto, auto);
+            label{
+                display: block;
+                font-size: large;
+                margin-bottom: 5px;
+                color: $mainColor
+            }
+            input, textarea{
+                @include fonts("Montserrat", auto, auto);
+                width: 100%;
+                outline: none;
+                padding: 10px;
+                font-size: medium;
+                background-color: #e9fdff;
+                border: 1px solid #b1b1b1; 
+                border-radius: 5px;
+            }
+            textarea{
+                resize: none;
+            }
+            }
+            .msg{
+                grid-column: 1/4;
+            }
+            .button{
+                display: block;
+                grid-column: 2/3;
+                background: linear-gradient(to right, $mainColor, $mainColor);
+                color: $secondMainColor;
+                @include paddingM(10px,10px ,10px ,10px );
+                border: 1px solid $mainColor;
+                outline: none;
+                text-transform: uppercase;
+                @include fonts("Montserrat", auto, 600);
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover{
+                    background: linear-gradient(to right, $mainColor, $otherColors);
+                    color: $secondMainColor;
+                    transition: 0.5s;
+                    border-image: linear-gradient(to right, $mainColor, $otherColors) 1 1 1 1;
+                }
+            }
+        }
+        
+    }
+}
+footer{
+    grid-area: footer;
+    @include colors($mainColor, $secondMainColor);
+    padding: 20px;
+    display: grid;
+    grid-template: {
+        columns: repeat(10,1fr);
+        areas:". fturs fturs fturs fturs fturs fturs fturs fturs ."
+        ". copyR copyR copyR copyR copyR copyR copyR copyR .";
+    }
+    .features{
+        border-bottom: 1px solid $otherColors;
+        padding-bottom: 10px;
+        margin-top: 20px;
+        grid-area: fturs;
+        display: grid;
+        gap: 10px;
+        grid-template: {
+            columns: repeat(4,1fr);
+        }
+        .im{
+            @include center_Ver_Hor(flex, center, center)
+        }
+        .feat{
+            // border-right: 1px solid $otherColors;
+            text-align: center;
+            @include colors(transparent, $secondMainColor);
+            .img{
+                width: 60%;
+                height: auto;
+            }
+            // h2{
+            //     @include fonts("Orbitron", auto, auto);
+            //     margin-top: -5px;
+            //     color: #fff;
+            // }
+            h4{
+                text-align: left;
+                text-transform: uppercase;
+                @include fonts("Orbitron", auto, auto);
+                @include afterUnderline2(30%, 4px, 5px, 0);
+                margin-bottom: 20px;
+            }
+            a{
+                text-decoration: none;
+                @include fonts("Montserrat", auto, auto);
+                color: #9ACBD0;
+                display: block;
+                text-align: left;
+                margin-top: 10px;
+                transition: 0.5s;
+                &:hover{
+                    color: #fff;
+                    // @include afterUnderline2(30%, 4px, 5px, 0);
+                }
+            }
+       }
+    }
+    span{
+        grid-area: copyR;
+        @include fonts("Montserrat", small, auto);
+        text-align: center;
+        @include paddingM(25px, 0, 5px, 0);
+    }
+    
+}
+@keyframes scaleImg {
+    from {
+        scale: 1;
+    }
+    to{
+        scale: 1.05;
+    }
+}
+
+
+@import "mediaquery.scss";

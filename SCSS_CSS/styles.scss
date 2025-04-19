@@ -227,7 +227,7 @@ section{
         display: grid;
         grid-template: {
             columns: 20% 60% 20%;
-            rows: repeat(1,500px);
+            rows: repeat(1,50vh);
             areas: "photo";
         }
         width: 90%;

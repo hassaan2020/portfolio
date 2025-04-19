@@ -187,6 +187,7 @@
     }
     header{
         height: auto;
+        width: 100%;
         @include paddingM(10px, 10px, 10px, 10px);
         gap: 15px;
         grid-template: {
@@ -198,7 +199,6 @@
         };
         .aboutMe{
             width: 100%;
-
             grid-area: about;
             gap: 10px;
             grid-template-rows: 7% auto auto auto auto auto 20% ;
@@ -207,6 +207,7 @@
                 @include fonts("Montserrat", large, auto);
             }
             h1{
+                width: 100%;
                 @include fonts("Montserrat", small, auto);
             }
         }

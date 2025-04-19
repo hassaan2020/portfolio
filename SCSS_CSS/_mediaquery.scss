@@ -1,4 +1,9 @@
  @media only screen and (max-width: 768px) {
+    *{
+        box-sizing: border-box;
+        @include maginM(0,0,0,0);
+        @include paddingM(0,0,0,0);
+    }
     nav{
         position: relative;
         grid-template: {
@@ -156,6 +161,11 @@
   }
 
 @media only screen and (max-width: 600px) {
+    *{
+        box-sizing: border-box;
+        @include maginM(0,0,0,0);
+        @include paddingM(0,0,0,0);
+    }
     nav{
         position: relative;
         grid-template: {

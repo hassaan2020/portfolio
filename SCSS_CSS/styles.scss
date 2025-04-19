@@ -52,21 +52,21 @@ html{
     @include maginM(0,0,0,0);
     @include paddingM(0,0,0,0);
 }
-body{
-    display: grid;
-    grid-template: {
-        columns: repeat(5,1fr);
-        rows: auto auto auto auto auto;
-        areas: "nav nav nav nav nav"
-        "header header header header header"
-        "sec sec sec sec sec"
-        "skills skills skills skills skills "
-        "sect2 sect2 sect2 sect2 sect2 "
-        "prjcts prjcts prjcts prjcts prjcts "
-        "contc contc contc contc contc"
-        "footer footer footer footer footer";
-    };
-}
+// body{
+//     display: grid;
+//     grid-template: {
+//         columns: repeat(5,1fr);
+//         rows: auto auto auto auto auto;
+//         areas: "nav nav nav nav nav"
+//         "header header header header header"
+//         "sec sec sec sec sec"
+//         "skills skills skills skills skills "
+//         "sect2 sect2 sect2 sect2 sect2 "
+//         "prjcts prjcts prjcts prjcts prjcts "
+//         "contc contc contc contc contc"
+//         "footer footer footer footer footer";
+//     };
+// }
 
 nav{
     grid-area: nav;

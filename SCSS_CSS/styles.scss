@@ -244,7 +244,7 @@ section{
         display: grid;
         grid-template: {
             columns: repeat(5,1fr);
-            rows: 25% 10% 10% 30% 25%;
+            // rows: 25% 10% 10% 30% 25%;
             areas: 
             "s s s s s"
             "h5 h5 h5 h5 h5"
@@ -403,7 +403,7 @@ section{
         display: grid;
         grid-template: {
             columns: repeat(5,1fr);
-            rows: 10% 10% 10% 35% 35%;
+            // rows: 10% 10% 10% 35% 35%;
             areas: 
             "s s s s s"
             "h5 h5 h5 h5 h5"

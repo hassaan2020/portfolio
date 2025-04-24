@@ -32,6 +32,7 @@
     header{
         height: auto;
         // @include paddingM(10px, 10px, 10px, 10px);
+        overflow: hidden;
         gap: 15px;
         grid-template: {
             columns: repeat(10,1fr);
@@ -41,11 +42,11 @@
             " img img img img img img img img img img";
         };
         .aboutMe{
-            width: 100%;
-            grid-area: about;
-            gap: 10px;
-            grid-template-rows: 7% auto auto auto auto auto 20% ;
-            @include paddingM(5px, 5px ,5px ,5px);
+            // width: 100%;
+            // grid-area: about;
+            // gap: 10px;
+            // grid-template-rows: 7% auto auto auto auto auto 20% ;
+            // @include paddingM(5px, 5px ,5px ,5px);
             .big{
                 @include fonts("Montserrat", large, auto);
             }
@@ -190,6 +191,7 @@
     header{
         height: auto;
         width: 100%;
+        overflow: hidden;
         // @include paddingM(10px, 10px, 10px, 10px);
         gap: 15px;
         grid-template: {
@@ -200,11 +202,11 @@
             " img img img img img img img img img img";
         };
         .aboutMe{
-            width: 100%;
-            grid-area: about;
-            gap: 10px;
-            grid-template-rows: 7% auto auto auto auto auto 20% ;
-            @include paddingM(5px, 5px ,5px ,5px);
+            // width: 100%;
+            // grid-area: about;
+            // gap: 10px;
+            // grid-template-rows: 7% auto auto auto auto auto 20% ;
+            // @include paddingM(5px, 5px ,5px ,5px);
             .big{
                 @include fonts("Montserrat", large, auto);
             }

@@ -456,7 +456,7 @@ section{
                 width: 100%;
                 height: 55%;
             }
-            h2{
+            h3{
                 @include paddingM(10px, 5px, 5px, 10px);
                 @include fonts("Orbitron", auto, auto);
                 color: $mainColor;
